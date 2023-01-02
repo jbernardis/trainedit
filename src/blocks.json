@@ -1,0 +1,1050 @@
+{
+  "B10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "B10.W": {
+    "time": 2000,
+    "trigger": "F"
+  },
+  "B11": {
+    "time": 5000,
+    "trigger": "R"
+  },
+  "B11.W": {
+    "time": 2000,
+    "trigger": "F"
+  },
+  "B20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "B20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "B21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "B21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "B21.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "BOSE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "BOSWE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "BOSWW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C12": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C12.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C13": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C13.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C13.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C22": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C23": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C23.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C30": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C31": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C40": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C41": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C42": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C43": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C44": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C50": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C51": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C52": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C53": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "C54": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSCLEE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSCLEW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSCLW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSGME": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSGMW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSSHE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "COSSHW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D11.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D11A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D11B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D21.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D21A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "D21B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "DOSFOE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "DOSFOW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "DOSVJE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "DOSVJW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "F10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "F10.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "F11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "F11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "G10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "G12": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "G21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H10A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H10B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H12": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H13": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H13.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H22": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H23": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H23.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H30.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H30A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H30B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H31": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H32": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H33": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H34": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H40": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H41": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H42": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "H43": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "HOSEE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "HOSEW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "HOSWE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "HOSWW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "HOSWW2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "K10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "KOSE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "KOSM": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "KOSN10S11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "KOSN20S21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "KOSW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L21.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L31": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "L31.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSCAE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSCAM": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSCAW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSLAE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSLAM": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "LOSLAW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N10.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N11.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N12": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N20.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N21.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N22": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N25": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N25.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N25.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N31": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N32": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N41": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N42": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "N60": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NEOSE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NEOSRH": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NEOSW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NWOSCY": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NWOSE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NWOSTY": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "NWOSW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P10.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P11.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P3": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P30": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P30.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P30.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P31": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P31.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P31.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P32": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P32.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P32.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P4": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P40": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P40.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P41": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P41.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P41.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P42": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P42.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P42.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P5": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P50": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P50.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P50.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P6": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P60": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P61": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P62": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P63": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P64": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "P7": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSCJ1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSCJ2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSPJ1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSPJ2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSJ1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSJ2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSP1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSP2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSP3": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSP4": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "POSSP5": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "R10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "R10A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "R10B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "R10C": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S10.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S10.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S10A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S10B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S10C": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S11.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S11A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S11B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S20.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S20A": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S20B": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S20C": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "S21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSHF": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSHJE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSHJM": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSHJW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "SOSW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "T12": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "V10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "V11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "W10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "W11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "W20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y10": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y11": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y11.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y20": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y20.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y21": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y21.E": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y21.W": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y30": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y50": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y51": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y52": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y53": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y60": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y70": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y81": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y82": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y83": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y84": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "Y87": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSCJE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSCJW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSEJE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSEJW": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSKL1": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSKL2": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSKL3": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSKL4": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSWYE": {
+    "time": 5000,
+    "trigger": "F"
+  },
+  "YOSWYW": {
+    "time": 5000,
+    "trigger": "F"
+  }
+}

@@ -8,13 +8,13 @@ class LayoutData:
 		with open("layout.json", "r") as jfp:
 			self.layout = json.load(jfp)
 
-		with open("subblocks.json", "r") as jfp:
-			self.subblocks = json.load(jfp)
+		self.routes = self.layout["routes"]
+		self.subblocks = self.layout["subblocks"]
 
 		self.block2route = {}
 		self.osblocks = []
 		self.blocks = []
-		self.routes = self.layout["routes"]
+
 		self.blockdir = {b: d["east"] for b, d in self.layout["blocks"].items()}
 		self.stopblocks = {b: [d["sbeast"], d["sbwest"]] for b, d in self.layout["blocks"].items()}
 		for r in self.routes:

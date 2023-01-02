@@ -2,6 +2,7 @@ import wx
 import wx.lib.newevent
 
 from layoutdata import LayoutData
+from blocksettings import BlockSettings
 from nextblocklist import NextBlockListCtrl
 from blocksequence import BlockSequenceListCtrl
 
@@ -13,6 +14,7 @@ class MainFrame(wx.Frame):
 		
 		self.trainid = trainid
 		self.locoid = locoid
+		self.trainTrigger = "R"
 		self.east = east
 		
 		self.title = "PSRY Train Editor"
@@ -123,7 +125,7 @@ class MainFrame(wx.Frame):
 	def Initialize(self):
 		self.ShowTitle()
 		self.layout = LayoutData()
-		self.layout.Dump()
+		self.blockSettings = BlockSettings()
 
 		self.blockList = self.layout.GetBlocks()
 		self.chStartBlock.SetItems(self.blockList)
@@ -209,8 +211,9 @@ class MainFrame(wx.Frame):
 
 	def OnBGenSim(self, _):
 		steps = []
+		tm = self.blockSettings.GetBlockTraversalTime(self.startBlock)
 		steps.append("{!placetrain!: {!block!: !%s!, !name!: !%s!, !loco!: !%s!, !time!: %d, !length!: %d}}" %
-				(self.startBlock, self.trainid, self.locoid, 5000, 3))
+				(self.startBlock, self.trainid, self.locoid, tm, 3))
 
 		for b in self.blockSequence.GetBlocks():
 			subBlocks = self.layout.GetSubBlocks(b[0])
@@ -233,14 +236,29 @@ class MainFrame(wx.Frame):
 			blkString = ",".join(blks)
 			steps.append("{!waitfor!: {!signal!: !%s!, !route!: !%s!, !os!: !%s!, !block!: !%s!}}" %
 				(b[1], b[3], b[2], blkString))
-			steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (b[2], 5000))
+			tm = self.blockSettings.GetBlockTraversalTime(b[2])
+			steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (b[2], tm))
 			for blk in blks:
-				steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (blk, 5000))
+				tm = self.blockSettings.GetBlockTraversalTime(blk)
+				steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (blk, tm))
 
 		print(",\n".join(steps).replace('!', '"'))
 
 	def OnBGenAR(self, _):
-		print("Generate AR")
+		lastBlock = self.startBlock
+		script = ["{\n  !%s!: {" % self.trainid]
+		steps = []
+		for b in self.blockSequence.GetBlocks():
+			if self.trainTrigger == "B":
+				trigger = self.blockSettings.GetBlockTriggerPoint(lastBlock)
+			else:
+				trigger = self.trainTrigger
+				
+			steps.append("    !%s!: {!route!: !%s!, !trigger!: !%s!}" % (lastBlock, b[3], trigger))
+			lastBlock = b[0]
+		script.append(",\n".join(steps))
+		script.append("  }\n}")
+		print("\n".join(script).replace('!', '"'))
 
 	def OnClose(self, _):
 		self.Destroy()
