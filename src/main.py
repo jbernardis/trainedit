@@ -5,7 +5,7 @@ from mainframe import MainFrame
 
 class App(wx.App):
 	def OnInit(self):
-		self.frame = MainFrame("HEX", 7600, True)
+		self.frame = MainFrame()
 		self.frame.Show()
 		return True
 

@@ -1,0 +1,44 @@
+{
+  "HEX": {
+    "eastbound": true,
+    "steps": [
+      [
+        "B11",
+        "C22R",
+        "BOSWW",
+        "BRtB10B11"
+      ],
+      [
+        "B10",
+        "C22L",
+        "BOSWW",
+        "BRtB10B11"
+      ]
+    ],
+    "trigger": "B"
+  },
+  "HWX": {
+    "eastbound": false,
+    "steps": [
+      [
+        "B21",
+        "C22R",
+        "BOSWW",
+        "BRtB10B21"
+      ],
+      [
+        "B20",
+        "C24L",
+        "BOSWE",
+        "BRtB20B21"
+      ],
+      [
+        "N12",
+        "N24L",
+        "NEOSE",
+        "NRtB20N12"
+      ]
+    ],
+    "trigger": "B"
+  }
+}
