@@ -1,12 +1,13 @@
 import wx
 
+colMap = ["block", "signal", "os", "route", "trigger"]
 
 class BlockSequenceListCtrl(wx.ListCtrl):
-	def __init__(self, parent):
+	def __init__(self, parent, height=300, readonly=False):
 		self.parent = parent
 
 		wx.ListCtrl.__init__(
-			self, parent, wx.ID_ANY, size=(340, 300),
+			self, parent, wx.ID_ANY, size=(420, height),
 			style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_VRULES
 			)
 
@@ -17,10 +18,12 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 		self.InsertColumn(1, "Signal")
 		self.InsertColumn(2, "OS")
 		self.InsertColumn(3, "Route")
+		self.InsertColumn(4, "Trigger")
 		self.SetColumnWidth(0, 80)
 		self.SetColumnWidth(1, 80)
 		self.SetColumnWidth(2, 80)
 		self.SetColumnWidth(3, 80)
+		self.SetColumnWidth(4, 80)
 
 		self.SetItemCount(0)
 
@@ -29,10 +32,16 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 		self.normalA.SetBackgroundColour(wx.Colour(225, 255, 240))
 		self.normalB.SetBackgroundColour(wx.Colour(138, 255, 197))
 
-		self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.OnItemSelected)
+		if not readonly:
+			self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.OnItemSelected)
+			self.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.OnItemActivated)
 
-	def AddBlock(self, blk, sig, os, rte):
-		self.blocks.append([blk, sig, os, rte])
+	def AddBlock(self, step):
+		self.blocks.append(step)
+		self.refreshItemCount()
+		
+	def SetItems(self, blocks):
+		self.blocks = blocks
 		self.refreshItemCount()
 
 	def DelBlock(self):
@@ -47,7 +56,12 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 		return self.blocks
 
 	def refreshItemCount(self):
-		self.parent.reportNonEmpty(len(self.blocks) != 0)
+		try:
+			self.parent.reportNonEmpty(len(self.blocks) != 0)
+		except AttributeError:
+			pass
+
+		self.SetItemCount(0)		
 		self.SetItemCount(len(self.blocks))
 
 	def setSelection(self, tx):
@@ -61,8 +75,20 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 	def OnItemSelected(self, event):
 		self.setSelection(event.Index)
 
+	def OnItemActivated(self, event):
+		item = event.Index
+		try:
+			self.parent.reportItemActivated(item)
+		except AttributeError:
+			pass
+		if self.blocks[item]["trigger"] == "Front":
+			self.blocks[item]["trigger"] = "Rear"
+		else:
+			self.blocks[item]["trigger"] = "Front"
+		self.RefreshItem(item)
+
 	def OnGetItemText(self, item, col):
-		return self.blocks[item][col]
+		return self.blocks[item][colMap[col]]
 
 	def OnGetItemAttr(self, item):
 		if item % 2 == 1:

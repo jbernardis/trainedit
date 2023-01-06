@@ -1,44 +1,72 @@
 {
   "HEX": {
     "eastbound": true,
+    "startblock": "B10",
+    "startsubblock": null,
     "steps": [
-      [
-        "B11",
-        "C22R",
-        "BOSWW",
-        "BRtB10B11"
-      ],
-      [
-        "B10",
-        "C22L",
-        "BOSWW",
-        "BRtB10B11"
-      ]
-    ],
-    "trigger": "B"
+      {
+        "block": "B11",
+        "os": "BOSWW",
+        "route": "BRtB10B11",
+        "signal": "C22R",
+        "trigger": "Front"
+      },
+      {
+        "block": "C13",
+        "os": "BOSE",
+        "route": "BRtB11C13",
+        "signal": "C18RB",
+        "trigger": "Front"
+      },
+      {
+        "block": "C12",
+        "os": "COSCLW",
+        "route": "CRtC13C12",
+        "signal": "C14R",
+        "trigger": "Front"
+      },
+      {
+        "block": "C11",
+        "os": "COSCLEE",
+        "route": "CRtC12C11",
+        "signal": "C12R",
+        "trigger": "Front"
+      }
+    ]
   },
   "HWX": {
     "eastbound": false,
+    "startblock": "D11",
+    "startsubblock": "D11B",
     "steps": [
-      [
-        "B21",
-        "C22R",
-        "BOSWW",
-        "BRtB10B21"
-      ],
-      [
-        "B20",
-        "C24L",
-        "BOSWE",
-        "BRtB20B21"
-      ],
-      [
-        "N12",
-        "N24L",
-        "NEOSE",
-        "NRtB20N12"
-      ]
-    ],
-    "trigger": "B"
+      {
+        "block": "D10",
+        "os": "DOSVJW",
+        "route": "DRtD10D11",
+        "signal": "D6L",
+        "trigger": "Front"
+      },
+      {
+        "block": "D11",
+        "os": "DOSVJW",
+        "route": "DRtD10D11",
+        "signal": "D6RB",
+        "trigger": "Front"
+      },
+      {
+        "block": "D20",
+        "os": "DOSVJW",
+        "route": "DRtD20D11",
+        "signal": "D6L",
+        "trigger": "Front"
+      },
+      {
+        "block": "L31",
+        "os": "LOSCAE",
+        "route": "LRtL31D20",
+        "signal": "L14L",
+        "trigger": "Front"
+      }
+    ]
   }
 }

@@ -1,1050 +1,788 @@
 {
   "B10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "B10.W": {
-    "time": 2000,
-    "trigger": "F"
+    "time": 5000
   },
   "B11": {
-    "time": 5000,
-    "trigger": "R"
+    "time": 5000
   },
   "B11.W": {
-    "time": 2000,
-    "trigger": "F"
+    "time": 5000
   },
   "B20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "B20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "B21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "B21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "B21.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "BOSE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "BOSWE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "BOSWW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C12": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C12.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C13": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C13.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C13.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C22": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C23": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C23.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C30": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C31": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C40": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C41": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C42": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C43": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C44": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C50": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C51": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C52": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C53": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "C54": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSCLEE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSCLEW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSCLW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSGME": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSGMW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSSHE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "COSSHW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D11.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D11A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D11B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D21.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D21A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "D21B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "DOSFOE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "DOSFOW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "DOSVJE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "DOSVJW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "F10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "F10.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "F11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "F11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "G10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "G12": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "G21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H10A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H10B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H12": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H13": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H13.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H22": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H23": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H23.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H30.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H30A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H30B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H31": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H32": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H33": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H34": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H40": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H41": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H42": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "H43": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "HOSEE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "HOSEW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "HOSWE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "HOSWW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "HOSWW2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "K10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "KOSE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "KOSM": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "KOSN10S11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "KOSN20S21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "KOSW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L21.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L31": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "L31.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSCAE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSCAM": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSCAW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSLAE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSLAM": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "LOSLAW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N10.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N11.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N12": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N20.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N21.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N22": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N25": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N25.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N25.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N31": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N32": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N41": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N42": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "N60": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NEOSE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NEOSRH": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NEOSW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NWOSCY": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NWOSE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NWOSTY": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "NWOSW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P10.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P11.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P3": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P30": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P30.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P30.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P31": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P31.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P31.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P32": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P32.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P32.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P4": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P40": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P40.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P41": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P41.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P41.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P42": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P42.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P42.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P5": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P50": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P50.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P50.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P6": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P60": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P61": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P62": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P63": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P64": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "P7": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSCJ1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSCJ2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSPJ1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSPJ2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSJ1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSJ2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSP1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSP2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSP3": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSP4": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "POSSP5": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "R10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "R10A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "R10B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "R10C": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S10.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S10.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S10A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S10B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S10C": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S11.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S11A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S11B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S20.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S20A": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S20B": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S20C": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "S21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSHF": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSHJE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSHJM": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSHJW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "SOSW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "T12": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "V10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "V11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "W10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "W11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "W20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y10": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y11": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y11.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y20": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y20.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y21": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y21.E": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y21.W": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y30": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y50": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y51": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y52": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y53": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y60": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y70": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y81": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y82": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y83": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y84": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "Y87": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSCJE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSCJW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSEJE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSEJW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSKL1": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSKL2": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSKL3": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSKL4": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSWYE": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   },
   "YOSWYW": {
-    "time": 5000,
-    "trigger": "F"
+    "time": 5000
   }
 }

@@ -1,21 +1,18 @@
 import wx
 
-from layoutdata import LayoutData
-from blocksettings import BlockSettings
 from nextblocklist import NextBlockListCtrl
 from blocksequence import BlockSequenceListCtrl
 		
 class TrainDlg(wx.Dialog):
-	def __init__(self, parent, train):
+	def __init__(self, parent, train, layout):
 		self.parent = parent
 		
-		self.layout = None
 		wx.Dialog.__init__(self, self.parent, style=wx.DEFAULT_FRAME_STYLE)
 
+		self.layout = layout
 		self.trainObject = train		
 		self.trainid = train.GetTrainID()
 		self.locoid = 7000
-		self.trainTrigger = train.GetTrigger()
 		self.east = train.IsEast()
 		
 		self.blockList = [x for x in train.GetSteps()]
@@ -41,12 +38,6 @@ class TrainDlg(wx.Dialog):
 		self.Bind(wx.EVT_BUTTON, self.OnBDel, self.bDel)
 		self.bDel.Enable(False)
 
-		self.bGenSim = wx.Button(self, wx.ID_ANY, "Simulator\nScript", size=(80, 50))
-		self.Bind(wx.EVT_BUTTON, self.OnBGenSim, self.bGenSim)
-		self.bGenSim.Enable(False)
-		self.bGenAR = wx.Button(self, wx.ID_ANY, "Automatic\nRouter", size=(80, 50))
-		self.Bind(wx.EVT_BUTTON, self.OnBGenAR, self.bGenAR)
-		self.bGenAR.Enable(False)
 		self.bOK = wx.Button(self, wx.ID_ANY, "OK", size=(80, 50))
 		self.Bind(wx.EVT_BUTTON, self.OnBOK, self.bOK)
 		self.bCancel = wx.Button(self, wx.ID_ANY, "Cancel", size=(80, 50))
@@ -117,10 +108,6 @@ class TrainDlg(wx.Dialog):
 		hsz.Add(self.bOK)
 		hsz.AddSpacer(20)
 		hsz.Add(self.bCancel)
-		hsz.AddSpacer(50)
-		hsz.Add(self.bGenSim)
-		hsz.AddSpacer(30)
-		hsz.Add(self.bGenAR)
 		
 		vsz.Add(hsz, 0, wx.ALIGN_CENTER_HORIZONTAL)
 		vsz.AddSpacer(20)
@@ -135,47 +122,77 @@ class TrainDlg(wx.Dialog):
 		wx.CallAfter(self.Initialize)
 
 	def ShowTitle(self):
-		titleString = "%s: %s(%s)" % (self.title, self.trainid, self.locoid)
+		titleString = "%s: %s" % (self.title, self.trainid)
+		if self.modified:
+			titleString += " *"
 
 		self.SetTitle(titleString)
 
 	def Initialize(self):
 		self.modified = False
 		self.ShowTitle()
-		self.layout = LayoutData()
-		self.blockSettings = BlockSettings()
 
 		self.blockList = self.layout.GetBlocks()
 		self.chStartBlock.SetItems(self.blockList)
-		self.startBlock = self.blockList[0]
-		self.chStartBlock.SetSelection(0)
-		self.GetAvailableBlocks(self.startBlock)
-		self.nextBlockList.SetBlocks(self.availableBlocks)
+		
+		steps = self.trainObject.GetSteps()
+		if len(steps) == 0:
+			self.startBlock = self.blockList[0]
+			self.startSubBlock = None
+			self.chStartBlock.SetSelection(0)
+			self.GetAvailableBlocks(self.startBlock)
+			self.nextBlockList.SetBlocks(self.availableBlocks)
+			self.SetSubBlockChoices(self.startBlock, None)
+		else:	
+			self.startBlock = self.trainObject.GetStartBlock()
+			startSubBlock = self.trainObject.GetStartSubBlock()
+			try:
+				bx = self.blockList.index(self.startBlock)
+				self.chStartBlock.SetSelection(bx)
+			except ValueError:
+				self.chStartBlock.SetSelection(0)
+
+			lastBlock = self.startBlock				
+			for step in self.trainObject.GetSteps():		
+				self.blockSequence.AddBlock(step)
+				lastBlock = step["block"]
+				
+			self.GetAvailableBlocks(lastBlock)
+			self.nextBlockList.SetBlocks(self.availableBlocks)
+				
+			self.SetSubBlockChoices(self.startBlock, startSubBlock)
+
+			
 		self.Bind(wx.EVT_CHOICE, self.OnChStartBlock, self.chStartBlock)
 		self.Bind(wx.EVT_CHOICE, self.OnChStartSubBlock, self.chStartSubBlock)
-
-		for step in self.trainObject.GetSteps():		
-			self.blockSequence.AddBlock(step[0], step[1], step[2], step[3])
-
 		
 	def SetModified(self, flag=True):
-		print("modified")
 		self.modified = flag
+		self.ShowTitle()
 
 	def OnChStartBlock(self, event):
 		self.SetModified()
 		self.startBlock = event.GetString()
 		self.GetAvailableBlocks(self.startBlock)
 		self.nextBlockList.SetBlocks(self.availableBlocks)
-		subBlocks = self.layout.GetSubBlocks(self.startBlock)
+		self.SetSubBlockChoices(self.startBlock, None)
+		
+	def SetSubBlockChoices(self, blk, subblk):
+		subBlocks = self.layout.GetSubBlocks(blk)
 		if len(subBlocks) == 0:
 			self.startSubBlock = None
 			self.chStartSubBlock.Enable(False)
 		else:
 			self.chStartSubBlock.Enable(True)
 			self.chStartSubBlock.SetItems(subBlocks)
-			self.startSubBlock = subBlocks[0]
-			self.chStartSubBlock.SetSelection(0)
+			self.startSubBlock = subblk
+			try:
+				bx = subBlocks.index(subblk)
+				self.chStartSubBlock.SetSelection(bx)
+				self.startSubBlock = subblk
+			except ValueError:
+				self.chStartSubBlock.SetSelection(0)
+				self.startSubBlock = None
 
 	def OnChStartSubBlock(self, event):
 		self.SetModified()
@@ -185,6 +202,9 @@ class TrainDlg(wx.Dialog):
 		self.bDel.Enable(seqNotEmpty)
 		self.bGenSim.Enable(seqNotEmpty)
 		self.bGenAR.Enable(seqNotEmpty)
+		
+	def reportItemActivated(self, idx):
+		self.SetModified(True)
 
 	def reportSelection(self, tx, activate):
 		if tx is None:
@@ -204,13 +224,16 @@ class TrainDlg(wx.Dialog):
 		self.SetModified()
 		self.chStartBlock.Enable(False)
 		self.chStartSubBlock.Enable(False)
-		nextBlock  = self.availableBlocks[tx][0]
-		nextSignal = self.availableBlocks[tx][1]
-		nextOS     = self.availableBlocks[tx][2]
-		nextRoute  = self.availableBlocks[tx][3]
+		nextStep = {
+			"block":   self.availableBlocks[tx][0],
+			"signal":  self.availableBlocks[tx][1],
+			"os":      self.availableBlocks[tx][2],
+			"route":   self.availableBlocks[tx][3],
+			"trigger": "Front"
+		}
 
-		self.blockSequence.AddBlock(nextBlock, nextSignal, nextOS, nextRoute)
-		self.GetAvailableBlocks(nextBlock)
+		self.blockSequence.AddBlock(nextStep)
+		self.GetAvailableBlocks(nextStep["block"])
 		self.nextBlockList.SetBlocks(self.availableBlocks)
 
 	def OnBDel(self, _):
@@ -228,8 +251,10 @@ class TrainDlg(wx.Dialog):
 			self.nextBlockList.SetBlocks(self.availableBlocks)
 
 	def GetAvailableBlocks(self, blk):
-		rteList = self.layout.GetRoutesForBlock(blk)
 		self.availableBlocks = []
+		if blk is None:
+			return
+		rteList = self.layout.GetRoutesForBlock(blk)
 		for r in rteList:
 			e = self.layout.GetRouteEnds(r)
 			s = self.layout.GetRouteSignals(r)
@@ -240,58 +265,7 @@ class TrainDlg(wx.Dialog):
 				self.availableBlocks.append([e[0], s[1], os, r])
 				
 	def GetResults(self):
-		return self.blockSequence.GetBlocks()
-
-	def OnBGenSim(self, _):
-		steps = []
-		tm = self.blockSettings.GetBlockTraversalTime(self.startBlock)
-		steps.append("{!placetrain!: {!block!: !%s!, !name!: !%s!, !loco!: !%s!, !time!: %d, !length!: %d}}" %
-				(self.startBlock, self.trainid, self.locoid, tm, 3))
-
-		for b in self.blockSequence.GetBlocks():
-			subBlocks = self.layout.GetSubBlocks(b[0])
-			stopBlocks = self.layout.GetStopBlocks(b[0])
-			print(str(subBlocks))
-			print(str(stopBlocks))
-			blks = []
-			if self.east:
-				if stopBlocks[1]:
-					blks.append(stopBlocks[1])
-				blks.append(b[0])
-				if stopBlocks[0]:
-					blks.append(stopBlocks[0])
-			else:
-				if stopBlocks[0]:
-					blks.append(stopBlocks[0])
-				blks.append(b[0])
-				if stopBlocks[1]:
-					blks.append(stopBlocks[1])
-			blkString = ",".join(blks)
-			steps.append("{!waitfor!: {!signal!: !%s!, !route!: !%s!, !os!: !%s!, !block!: !%s!}}" %
-				(b[1], b[3], b[2], blkString))
-			tm = self.blockSettings.GetBlockTraversalTime(b[2])
-			steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (b[2], tm))
-			for blk in blks:
-				tm = self.blockSettings.GetBlockTraversalTime(blk)
-				steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (blk, tm))
-
-		print(",\n".join(steps).replace('!', '"'))
-
-	def OnBGenAR(self, _):
-		lastBlock = self.startBlock
-		script = ["{\n  !%s!: {" % self.trainid]
-		steps = []
-		for b in self.blockSequence.GetBlocks():
-			if self.trainTrigger == "B":
-				trigger = self.blockSettings.GetBlockTriggerPoint(lastBlock)
-			else:
-				trigger = self.trainTrigger
-				
-			steps.append("    !%s!: {!route!: !%s!, !trigger!: !%s!}" % (lastBlock, b[3], trigger))
-			lastBlock = b[0]
-		script.append(",\n".join(steps))
-		script.append("  }\n}")
-		print("\n".join(script).replace('!', '"'))
+		return {"startblock": self.startBlock, "startsubblock": self.startSubBlock, "steps": self.blockSequence.GetBlocks()}
 
 	def OnClose(self, _):
 		self.DoCancel()

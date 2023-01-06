@@ -11,11 +11,4 @@ class BlockSettings:
 			return 5000
 		
 		return self.blocks[block]["time"]
-			
-	def GetBlockTriggerPoint(self, block):
-		if block not in self.blocks:
-			print("Block %s not found in data files - using Front trigger point" % block)
-			return "F"
-		
-		return self.blocks[block]["trigger"]
 		
