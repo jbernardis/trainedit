@@ -1,11 +1,11 @@
 import pprint
 
+import os
 import json
 
-
 class LayoutData:
-	def __init__(self):
-		with open("layout.json", "r") as jfp:
+	def __init__(self, ddir):
+		with open(os.path.join(ddir, "layout.json"), "r") as jfp:
 			self.layout = json.load(jfp)
 
 		self.routes = self.layout["routes"]
@@ -25,13 +25,13 @@ class LayoutData:
 					self.block2route[b].append(r)
 				else:
 					self.block2route[b] = [r]
-			os = self.routes[r]["os"]
-			if os not in self.osblocks and os is not None:
-				self.osblocks.append(os)
-			if os in self.block2route:
-				self.block2route[os].append(r)
+			oswitch = self.routes[r]["os"]
+			if oswitch not in self.osblocks and oswitch is not None:
+				self.osblocks.append(oswitch)
+			if oswitch in self.block2route:
+				self.block2route[oswitch].append(r)
 			else:
-				self.block2route[os] = [r]
+				self.block2route[oswitch] = [r]
 
 		self.osblocks = sorted(self.osblocks)
 		self.blocks = sorted([x for x in self.blocks if x not in self.osblocks])

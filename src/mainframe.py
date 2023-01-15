@@ -1,18 +1,28 @@
 import wx
 import json
+import os
 
 from traindlg import TrainDlg
 from train import Trains
 from blocksequence import BlockSequenceListCtrl
 from layoutdata import LayoutData
-from blocksettings import BlockSettings
+from simscriptdlg import SimScriptDlg
+from arscriptdlg import ARScriptDlg
 
+SIMSCRIPTFN = "simscripts.json"
+ARSCRIPTFN =  "arscripts.json"
+
+def StoppingSection(blk):
+	return blk.endswith(".W") or blk.endswith(".E")
+		
 
 class MainFrame(wx.Frame):
 	def __init__(self):
 		wx.Frame.__init__(self, None, style=wx.DEFAULT_FRAME_STYLE)
 		self.title = "PSRY Train Editor"
 		self.Bind(wx.EVT_CLOSE, self.OnClose)
+		
+		self.dataDir = os.path.join(os.getcwd(), "data")
 		
 		self.cbTrain = wx.ComboBox(self, wx.ID_ANY, "", size=(100, -1),
 			 choices=[],
@@ -25,6 +35,7 @@ class MainFrame(wx.Frame):
 		self.Bind(wx.EVT_CHECKBOX, self.OnChbEastbound, self.chbEast)
 
 		self.teStartBlock = wx.TextCtrl(self, wx.ID_ANY, "", size=(80, -1), style=wx.TE_READONLY)	
+		self.teStartBlockTime = wx.TextCtrl(self, wx.ID_ANY, "", size=(80, -1), style=wx.TE_READONLY)	
 		
 		self.blockSeq = BlockSequenceListCtrl(self, height=200, readonly=True)
 		
@@ -76,6 +87,10 @@ class MainFrame(wx.Frame):
 		hsz.Add(wx.StaticText(self, wx.ID_ANY, "Starting Block: "))
 		hsz.AddSpacer(5)
 		hsz.Add(self.teStartBlock)
+		hsz.AddSpacer(10)
+		hsz.Add(wx.StaticText(self, wx.ID_ANY, "Time: "))
+		hsz.AddSpacer(5)
+		hsz.Add(self.teStartBlockTime)
 		vszr.Add(hsz, 0, wx.ALIGN_CENTER_HORIZONTAL)
 		vszr.AddSpacer(10)
 		vszr.Add(self.blockSeq)
@@ -106,9 +121,8 @@ class MainFrame(wx.Frame):
 		self.Fit()
 		self.Layout()
 
-		self.layout = LayoutData()
+		self.layout = LayoutData(self.dataDir)
 		wx.CallAfter(self.Initialize)
-		self.blockSettings = BlockSettings()
 		
 	def Initialize(self):
 		self.selectedTrain = None
@@ -122,7 +136,7 @@ class MainFrame(wx.Frame):
 		self.bEditSteps.Enable(flag)
 		
 	def loadTrains(self):
-		self.trains = Trains()
+		self.trains = Trains(self.dataDir)
 		
 	def SetTrainChoices(self, trlist=None):
 		if trlist is not None:
@@ -211,6 +225,7 @@ class MainFrame(wx.Frame):
 		self.blockSeq.SetItems(self.currentTrain.GetSteps())
 		self.startBlock = self.currentTrain.GetStartBlock()
 		self.startSubBlock = self.currentTrain.GetStartSubBlock()
+		self.startBlockTime = self.currentTrain.GetStartBlockTime()
 
 		self.ShowStartBlock()
 		
@@ -224,6 +239,7 @@ class MainFrame(wx.Frame):
 			self.teStartBlock.SetValue(sbString)
 		else:
 			self.teStartBlock.SetValue("")
+		self.teStartBlockTime.SetValue("%d" % self.startBlockTime)
 			
 	def OnChbEastbound(self, evt):
 		self.currentTrain.SetDirection(self.chbEast.IsChecked())
@@ -243,9 +259,11 @@ class MainFrame(wx.Frame):
 		self.currentTrain.SetSteps(results["steps"])
 		self.currentTrain.SetStartBlock(results["startblock"])
 		self.currentTrain.SetStartSubBlock(results["startsubblock"])
+		self.currentTrain.SetStartBlockTime(results["time"])
 		self.blockSeq.SetItems(self.currentTrain.GetSteps())
 		self.startBlock = self.currentTrain.GetStartBlock()
 		self.startSubBlock = self.currentTrain.GetStartSubBlock()
+		self.startBlockTime = self.currentTrain.GetStartBlockTime()
 		self.ShowStartBlock()
 		self.SetModified()
 		
@@ -268,71 +286,133 @@ class MainFrame(wx.Frame):
 		self.SetModified()
 
 	def OnBGenSim(self, _):
+		# TODO; need to do sometning about loco number.  Do we put it here, or should it be put inmy the simulator?
+		# TODO - train length
 		locoid = 7600
 		trainid = self.currentTrain.GetTrainID()
 		east = self.currentTrain.IsEast()
-		steps = []
-		subBlocks = self.layout.GetSubBlocks(self.startBlock)
-		if len(subBlocks) == 0:
-			blks = [self.startBlock]
-		else:
-			if self.startSubBlock == subBlocks[-1]:
-				blks = [b for b in reversed(subBlocks)]
-			else:
-				blks = subBlocks
-		tm = self.blockSettings.GetBlockTraversalTime(blks[0])
-		placeTrainCmd = {"block": self.startBlock, "name": trainid, "loco": locoid, "time": tm, "length": 3}
+		segTimes, segString = self.determineSegmentsAndTimes(self.startBlock, None, east, self.currentTrain.GetStartBlockTime())
+		sBlk = self.startBlock
 		if self.startSubBlock is not None:
-			placeTrainCmd["subblock"] = blks[0]
+			sBlk = self.startSubBlock
 			
-		steps.append(json.dumps({"placetrain": placeTrainCmd}))
+		# determine which segment is our starting position and ignore the seqments before it in the list
+		for idx in range(len(segTimes)):
+			if sBlk == segTimes[idx][0]:
+				break
+		else:
+			idx = 0
+			
+		script = []
+		placeTrainCmd = {"block": self.startBlock, "name": trainid, "loco": locoid, "time": segTimes[idx][1], "length": 3}
+		if self.startSubBlock is not None:
+			placeTrainCmd["subblock"] = segTimes[idx][0]
+			
+		script.append({"placetrain": placeTrainCmd})
 
-		if len(blks) > 1:
-			for b in blks[1:]:
-				tm = self.blockSettings.GetBlockTraversalTime(b)
-				steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (b, tm))
+		idx += 1
+		while idx < len(segTimes):
+			script.append({"movetrain": {"block": segTimes[idx][0], "time": segTimes[idx][1]}})
+			idx += 1
 
 		for b in self.blockSeq.GetBlocks():
-			subBlocks = self.layout.GetSubBlocks(b["block"])
-			stopBlocks = self.layout.GetStopBlocks(b["block"])
-			blks = []
-			if len(subBlocks) == 0:
-				subBlocks = [b["block"]]
-			if east:
-				if stopBlocks[1]:
-					blks.append(stopBlocks[1])
-				blks.extend(subBlocks) # one of these will need to be reversed
-				if stopBlocks[0]:
-					blks.append(stopBlocks[0])
-			else:
-				if stopBlocks[0]:
-					blks.append(stopBlocks[0])
-				blks.extend(subBlocks) # one of these will need to be reversed
-				if stopBlocks[1]:
-					blks.append(stopBlocks[1])
-			blkString = ",".join(blks)
-			steps.append("{!waitfor!: {!signal!: !%s!, !route!: !%s!, !os!: !%s!, !block!: !%s!}}" %
-				(b["signal"], b["route"], b["os"], blkString))
-			tm = self.blockSettings.GetBlockTraversalTime(b["os"])
-			steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (b["os"], tm))
-			for blk in blks:
-				tm = self.blockSettings.GetBlockTraversalTime(blk)
-				steps.append("{!movetrain!: {!block!: !%s!, !time!: %d}}" % (blk, tm))
+			segTimes, segString = self.determineSegmentsAndTimes(b["block"], b["os"], east, b["time"])
 
-		print(",\n".join(steps).replace('!', '"'))
+			script.append({"waitfor": {"signal": b["signal"], "route": b["route"], "os": segTimes[0][0], "block": segString}})
+			
+			script.append({"movetrain": {"block": segTimes[0][0], "time": segTimes[0][1]}})
+			for seg, tm in segTimes[1:]:
+				script.append({"movetrain": {"block": seg, "time": tm}})
+
+		scr = {"%s" % trainid: script}
+		scrString = json.dumps(scr, indent=2)
+		dlg = SimScriptDlg(self, scrString, trainid)
+		rc = dlg.ShowModal()
+		if rc == wx.ID_OK:
+			fn = os.path.join(os.getcwd(), "data", SIMSCRIPTFN)
+			try:
+				with open(fn, "r") as jfp:
+					j = json.load(jfp)
+			except FileNotFoundError:
+				j = {}
+			j.update(scr)
+			
+			with open(fn, "w") as jfp:
+				json.dump(j, jfp, indent=2)
+								
+		dlg.Destroy()
+		
+		
+	def determineSegmentsAndTimes(self, block, os, east, blockTime):
+		subBlocks = self.layout.GetSubBlocks(block)
+		if len(subBlocks) == 0:
+			subBlocks = [block]  # no sub-blocks - just use the block name itself
+		stopBlocks = self.layout.GetStopBlocks(block)
+		
+		blks = []
+		waitblks = []
+		subCt = len(subBlocks)
+		stopCt = 0
+		if east:
+			if stopBlocks[1]:
+				stopCt += 1
+				blks.append(stopBlocks[1])
+				waitblks.append(stopBlocks[1])
+			blks.extend(subBlocks) # TODO: one of these will need to be reversed
+			waitblks.append(block)
+			if stopBlocks[0]:
+				stopCt += 1
+				blks.append(stopBlocks[0])
+				waitblks.append(stopBlocks[0])
+		else:
+			if stopBlocks[0]:
+				stopCt += 1
+				blks.append(stopBlocks[0])
+				waitblks.append(stopBlocks[0])
+			blks.extend(subBlocks) # one of these will need to be reversed
+			waitblks.append(block)
+			if stopBlocks[1]:
+				stopCt += 1
+				blks.append(stopBlocks[1])
+				waitblks.append(stopBlocks[1])
+				
+		waitString = ",".join(waitblks) # segment string should NOT include the os
+		if os is not None:
+			blks.insert(0, os)
+			subCt += 1
+		stopTime = int(blockTime * 0.1)
+		subTime = int((blockTime - stopTime * stopCt) / subCt)
+		segTimes = [[blk, stopTime if StoppingSection(blk) else subTime] for blk in blks]
+		
+		return segTimes,waitString
 
 	def OnBGenAR(self, _):
+		# TODO: we may not want to autproute at every OS - need a way to check the ones we do want
 		trainid = self.currentTrain.GetTrainID()
 		lastBlock = self.startBlock
-		script = ["{\n  !%s!: {" % trainid]
-		steps = []
+		script = {}
 		for b in self.blockSeq.GetBlocks():
 			trigger = 'F' if b["trigger"] == "Front" else 'B'			
-			steps.append("    !%s!: {!route!: !%s!, !trigger!: !%s!}" % (lastBlock, b["route"], trigger))
+			script[lastBlock] = {"route": b["route"], "trigger": trigger}
 			lastBlock = b["block"]
-		script.append(",\n".join(steps))
-		script.append("  }\n}")
-		print("\n".join(script).replace('!', '"'))
+
+		scr = {"%s" % trainid: script}
+		scrString = json.dumps(scr, indent=2)
+		dlg = ARScriptDlg(self, scrString, trainid)
+		rc = dlg.ShowModal()
+		if rc == wx.ID_OK:
+			fn = os.path.join(os.getcwd(), "data", ARSCRIPTFN)
+			try:
+				with open(fn, "r") as jfp:
+					j = json.load(jfp)
+			except FileNotFoundError:
+				j = {}
+			j.update(scr)
+			
+			with open(fn, "w") as jfp:
+				json.dump(j, jfp, indent=2)
+			
+		dlg.Destroy()
 		
 	def SetModified(self, flag=True):
 		self.modified = flag

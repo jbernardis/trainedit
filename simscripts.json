@@ -1,0 +1,167 @@
+{
+  "HEX": [
+    {
+      "placetrain": {
+        "block": "H40",
+        "name": "HEX",
+        "loco": 7600,
+        "time": 5000,
+        "length": 3
+      }
+    },
+    {
+      "waitfor": {
+        "signal": "H10RE",
+        "route": "HRtH23H40",
+        "os": "HOSEE",
+        "block": "H23,H23.E"
+      }
+    },
+    {
+      "movetrain": {
+        "block": "HOSEE",
+        "time": 2250
+      }
+    },
+    {
+      "movetrain": {
+        "block": "H23",
+        "time": 2250
+      }
+    },
+    {
+      "movetrain": {
+        "block": "H23.E",
+        "time": 500
+      }
+    },
+    {
+      "waitfor": {
+        "signal": "D4RB",
+        "route": "DRtH23D21",
+        "os": "DOSVJE",
+        "block": "D21.W,D21,D21.E"
+      }
+    },
+    {
+      "movetrain": {
+        "block": "DOSVJE",
+        "time": 1333
+      }
+    },
+    {
+      "movetrain": {
+        "block": "D21.W",
+        "time": 500
+      }
+    },
+    {
+      "movetrain": {
+        "block": "D21A",
+        "time": 1333
+      }
+    },
+    {
+      "movetrain": {
+        "block": "D21B",
+        "time": 1333
+      }
+    },
+    {
+      "movetrain": {
+        "block": "D21.E",
+        "time": 500
+      }
+    },
+    {
+      "waitfor": {
+        "signal": "D10R",
+        "route": "DRtD21S20",
+        "os": "DOSFOE",
+        "block": "S20.W,S20,S20.E"
+      }
+    },
+    {
+      "movetrain": {
+        "block": "DOSFOE",
+        "time": 1000
+      }
+    },
+    {
+      "movetrain": {
+        "block": "S20.W",
+        "time": 500
+      }
+    },
+    {
+      "movetrain": {
+        "block": "S20A",
+        "time": 1000
+      }
+    },
+    {
+      "movetrain": {
+        "block": "S20B",
+        "time": 1000
+      }
+    },
+    {
+      "movetrain": {
+        "block": "S20C",
+        "time": 1000
+      }
+    },
+    {
+      "movetrain": {
+        "block": "S20.E",
+        "time": 500
+      }
+    },
+    {
+      "waitfor": {
+        "signal": "S4R",
+        "route": "SRtS20H20",
+        "os": "SOSE",
+        "block": "H20,H20.E"
+      }
+    },
+    {
+      "movetrain": {
+        "block": "SOSE",
+        "time": 2250
+      }
+    },
+    {
+      "movetrain": {
+        "block": "H20",
+        "time": 2250
+      }
+    },
+    {
+      "movetrain": {
+        "block": "H20.E",
+        "time": 500
+      }
+    },
+    {
+      "waitfor": {
+        "signal": "S18R",
+        "route": "SRtH20H40",
+        "os": "SOSHJM",
+        "block": "H40"
+      }
+    },
+    {
+      "movetrain": {
+        "block": "SOSHJM",
+        "time": 2500
+      }
+    },
+    {
+      "movetrain": {
+        "block": "H40",
+        "time": 2500
+      }
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 import wx
+import json
 
-colMap = ["block", "signal", "os", "route", "trigger"]
+colMap = ["block", "signal", "os", "route", "time", "trigger"]
 
 class BlockSequenceListCtrl(wx.ListCtrl):
 	def __init__(self, parent, height=300, readonly=False):
 		self.parent = parent
 
 		wx.ListCtrl.__init__(
-			self, parent, wx.ID_ANY, size=(420, height),
+			self, parent, wx.ID_ANY, size=(440, height),
 			style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_VRULES
 			)
 
@@ -18,12 +19,14 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 		self.InsertColumn(1, "Signal")
 		self.InsertColumn(2, "OS")
 		self.InsertColumn(3, "Route")
-		self.InsertColumn(4, "Trigger")
-		self.SetColumnWidth(0, 80)
+		self.InsertColumn(4, "Time")
+		self.InsertColumn(5, "Trigger")
+		self.SetColumnWidth(0, 50)
 		self.SetColumnWidth(1, 80)
 		self.SetColumnWidth(2, 80)
 		self.SetColumnWidth(3, 80)
-		self.SetColumnWidth(4, 80)
+		self.SetColumnWidth(4, 50)
+		self.SetColumnWidth(5, 80)
 
 		self.SetItemCount(0)
 
@@ -54,6 +57,20 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 			
 	def GetBlocks(self):
 		return self.blocks
+	
+	def GetBlock(self, idx):
+		if idx < 0 or idx >= len(self.blocks):
+			return None
+		
+		return {k:v for k,v in self.blocks[idx].items()}
+	
+	def SetBlock(self, idx, nv):
+		if idx < 0 or idx >= len(self.blocks):
+			return False
+		
+		self.blocks[idx] = {k:v for k,v in nv.items()}
+		self.RefreshItem(idx)
+		return True
 
 	def refreshItemCount(self):
 		try:
@@ -81,14 +98,14 @@ class BlockSequenceListCtrl(wx.ListCtrl):
 			self.parent.reportItemActivated(item)
 		except AttributeError:
 			pass
-		if self.blocks[item]["trigger"] == "Front":
-			self.blocks[item]["trigger"] = "Rear"
-		else:
-			self.blocks[item]["trigger"] = "Front"
-		self.RefreshItem(item)
+  # if self.blocks[item]["trigger"] == "Front":
+  # 	self.blocks[item]["trigger"] = "Rear"
+  # else:
+  # 	self.blocks[item]["trigger"] = "Front"
+  # self.RefreshItem(item)
 
 	def OnGetItemText(self, item, col):
-		return self.blocks[item][colMap[col]]
+		return str(self.blocks[item][colMap[col]])
 
 	def OnGetItemAttr(self, item):
 		if item % 2 == 1:

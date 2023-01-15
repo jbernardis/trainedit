@@ -1,0 +1,24 @@
+{
+  "HEX": {
+    "H40": {
+      "route": "HRtH23H40",
+      "trigger": "F"
+    },
+    "H23": {
+      "route": "DRtH23D21",
+      "trigger": "F"
+    },
+    "D21": {
+      "route": "DRtD21S20",
+      "trigger": "F"
+    },
+    "S20": {
+      "route": "SRtS20H20",
+      "trigger": "F"
+    },
+    "H20": {
+      "route": "SRtH20H40",
+      "trigger": "F"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import json
+import os
 
 class Train:
 	def __init__(self, tid):
@@ -7,6 +8,7 @@ class Train:
 		self.steps = []
 		self.startblock = None
 		self.startsubblock = None
+		self.startblocktime = 5000
 		
 	def SetDirection(self, direction):
 		self.east = direction
@@ -23,6 +25,12 @@ class Train:
 	def GetSteps(self):
 		return [x for x in self.steps]
 	
+	def SetStartBlockTime(self, time):
+		self.startblocktime = time
+		
+	def GetStartBlockTime(self):
+		return self.startblocktime
+	
 	def SetStartBlock(self, blk):
 		self.startblock = blk
 		
@@ -36,12 +44,13 @@ class Train:
 		return self.startsubblock
 	
 	def ToJSON(self):
-		return {self.tid: {"eastbound": self.east, "startblock": self.startblock, "startsubblock": self.startsubblock, "steps": self.steps}}
+		return {self.tid: {"eastbound": self.east, "startblock": self.startblock, "startsubblock": self.startsubblock, "time": self.startblocktime, "steps": self.steps}}
 	
 class Trains:
-	def __init__(self):
+	def __init__(self, ddir):
+		self.fn = os.path.join(ddir, "trains.json") 
 		try:
-			with open("trains.json", "r") as jfp:
+			with open(self.fn, "r") as jfp:
 				TrainsJson = json.load(jfp)
 		except:
 			TrainsJson = {}
@@ -52,6 +61,7 @@ class Trains:
 			tr = self.AddTrain(tid, trData["eastbound"])
 			tr.SetStartBlock(trData["startblock"])
 			tr.SetStartSubBlock(trData["startsubblock"])
+			tr.SetStartBlockTime(trData["time"])
 			tr.SetSteps(trData["steps"])
 		
 	def Save(self):
@@ -59,7 +69,7 @@ class Trains:
 		for tr in self.trainlist:
 			TrainsJson.update(tr.ToJSON())
 			
-		with open("trains.json", "w") as jfp:
+		with open(self.fn, "w") as jfp:
 			json.dump(TrainsJson, jfp, sort_keys=True, indent=2)
 		
 	def GetTrainList(self):

@@ -1,4 +1,6 @@
 import wx
+from wx.lib.intctrl import IntCtrl
+import json
 
 from nextblocklist import NextBlockListCtrl
 from blocksequence import BlockSequenceListCtrl
@@ -27,6 +29,14 @@ class TrainDlg(wx.Dialog):
 		self.chStartBlock = wx.Choice(boxStartLoc, wx.ID_ANY, choices=[], size=(60, -1))
 		self.chStartSubBlock = wx.Choice(boxStartLoc, wx.ID_ANY, choices=[], size=(60, -1))
 		self.chStartSubBlock.Enable(False)
+		
+		#self.tcStartBlockTime = wx.TextCtrl(boxStartLoc, wx.ID_ANY, "5000", size=(60, -1), style=wx.TE_RIGHT)
+		ic = IntCtrl(boxStartLoc, wx.ID_ANY, size=(60, -1), style=wx.TE_RIGHT)
+		ic.SetMin(0)
+		ic.SetMax(99999)
+		ic.SetValue(5000)
+		ic.SetNoneAllowed(False)
+		self.tcStartBlockTime = ic
 
 		self.nextBlockList = NextBlockListCtrl(self)
 		self.blockSequence = BlockSequenceListCtrl(self)
@@ -61,6 +71,12 @@ class TrainDlg(wx.Dialog):
 		vsz.Add(wx.StaticText(boxStartLoc, wx.ID_ANY, "Sub-block"))
 		vsz.AddSpacer(5)
 		vsz.Add(self.chStartSubBlock)
+		hsz.Add(vsz)
+		hsz.AddSpacer(20)
+		vsz = wx.BoxSizer(wx.VERTICAL)
+		vsz.Add(wx.StaticText(boxStartLoc, wx.ID_ANY, "Time"))
+		vsz.AddSpacer(5)
+		vsz.Add(self.tcStartBlockTime)
 		hsz.Add(vsz)
 
 		hsz.AddSpacer(20)
@@ -140,6 +156,7 @@ class TrainDlg(wx.Dialog):
 			self.startBlock = self.blockList[0]
 			self.startSubBlock = None
 			self.chStartBlock.SetSelection(0)
+			self.tcStartBlockTime.SetValue(5000)
 			self.GetAvailableBlocks(self.startBlock)
 			self.nextBlockList.SetBlocks(self.availableBlocks)
 			self.SetSubBlockChoices(self.startBlock, None)
@@ -151,6 +168,8 @@ class TrainDlg(wx.Dialog):
 				self.chStartBlock.SetSelection(bx)
 			except ValueError:
 				self.chStartBlock.SetSelection(0)
+				
+			self.tcStartBlockTime.SetValue(self.trainObject.GetStartBlockTime())
 
 			lastBlock = self.startBlock				
 			for step in self.trainObject.GetSteps():		
@@ -204,7 +223,18 @@ class TrainDlg(wx.Dialog):
 		self.bGenAR.Enable(seqNotEmpty)
 		
 	def reportItemActivated(self, idx):
+		print("edit item %d" % idx)
+		rv = self.blockSequence.GetBlock(idx)
+		if rv is None:
+			print("None returned")
+			return
+		
+		print(json.dumps(rv))
+		rv["trigger"] = "Rear"
+		rv["time"] = 6987
+		print(json.dumps(rv))
 		self.SetModified(True)
+		self.blockSequence.SetBlock(idx, rv)
 
 	def reportSelection(self, tx, activate):
 		if tx is None:
@@ -229,6 +259,7 @@ class TrainDlg(wx.Dialog):
 			"signal":  self.availableBlocks[tx][1],
 			"os":      self.availableBlocks[tx][2],
 			"route":   self.availableBlocks[tx][3],
+			"time":    5000,
 			"trigger": "Front"
 		}
 
@@ -265,7 +296,7 @@ class TrainDlg(wx.Dialog):
 				self.availableBlocks.append([e[0], s[1], os, r])
 				
 	def GetResults(self):
-		return {"startblock": self.startBlock, "startsubblock": self.startSubBlock, "steps": self.blockSequence.GetBlocks()}
+		return {"startblock": self.startBlock, "startsubblock": self.startSubBlock, "time": self.tcStartBlockTime.GetValue(), "steps": self.blockSequence.GetBlocks()}
 
 	def OnClose(self, _):
 		self.DoCancel()
